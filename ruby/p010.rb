@@ -2,8 +2,6 @@
 
 # Find the sum of all the primes below two million.
 
-require 'set'
-
 CAP = 2_000_000
 primes = Array.new(CAP) { |idx| idx }
 primes[1] = 0

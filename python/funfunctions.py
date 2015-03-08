@@ -4,40 +4,58 @@ from math import sqrt
 from math import floor
 from math import ceil
 
-def isprime(candidate):
-	if candidate < 0: return False
+def primetest( candidate ):
 	candroot = floor(sqrt(candidate))
-	
+
 	if candidate <= 1: return False
 	if candidate < 4: return True
 	if candidate%2 == 0: return False
 	if candidate < 9: return True
 	if candidate%3 == 0: return False
-	
+
 	testfactor = 5
-	
+
 	while (testfactor <= candroot):
 		if candidate%testfactor == 0: return False
 		if candidate%(testfactor+2) == 0: return False
 		testfactor += 6
-	
+
 	return True
-	
+
+def isprime(candidate):
+	if candidate < 0: return False
+	candroot = floor(sqrt(candidate))
+
+	if candidate <= 1: return False
+	if candidate < 4: return True
+	if candidate%2 == 0: return False
+	if candidate < 9: return True
+	if candidate%3 == 0: return False
+
+	testfactor = 5
+
+	while (testfactor <= candroot):
+		if candidate%testfactor == 0: return False
+		if candidate%(testfactor+2) == 0: return False
+		testfactor += 6
+
+	return True
+
 def sumdigits(input):
 	while (input >= 1):
 		sum += input%10
 		input /= 10
 	return sum
-	
+
 def numberfactors(num):
     count = 0
     x = sqrt(num)
     y = int(ceil(x))
     if x - y == 0:
         count = 1
-    count += 2*len(filter(lambda a: num%a == 0, range(1,y)))    
+    count += 2*len(filter(lambda a: num%a == 0, range(1,y)))
     return count
-    
+
 def sumdivisors(num):
 	sum = 1
 	p = 2
@@ -58,9 +76,9 @@ def sumdivisors(num):
 
 def sumproperdivisors(num):
 	return sumdivisors(num)-num
-	
+
 def isabundant(num):
 	return (num < sumproperdivisors(num))
-	
+
 def isperfect(num):
 	return (num == sumdivisors(num))

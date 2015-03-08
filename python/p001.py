@@ -8,7 +8,7 @@
 from math import floor
 
 def trinum(number):
-	return (number * (number +1))/2
+	return (number * (number + 1))/2
 
 maxthree = floor(1000/3)
 
